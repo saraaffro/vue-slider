@@ -28,10 +28,17 @@ createApp({
         }
     }, methods: {
         prevImg(){
-            this.currentSlide--;
+            if(this.currentSlide === 0){
+                this.currentSlide = this.slides.length - 1;
+            }else{
+                this.currentSlide--;
+            }
         },
         nextImg(){
             this.currentSlide++;
+            if(this.currentSlide > this.slides.length - 1){
+                this.currentSlide = 0;
+            }
         }
     }
 }).mount("#app")
